@@ -30,10 +30,16 @@ numbers.  Include units in your prompt and output message;
 either feet or meters, depending on which unit you are more 
 comfortable working with.  (13 lines)
 """
-width = (input("What is the width of the room in feet?"))
-length = (input("What is the length of the room in feet?"))
-area = float(width)*float(length)
-print("The area of the room is", area, "square feet")
+
+def areaRoom():
+    print("Area of Room")
+    units = input("What units are you using?  feet or meters: ")
+    width = float(input("Width: "))
+    length = float(input("Length: "))
+
+    areaRoom = width*length
+    print("Area of the room is " + str(areaRoom) + " " + units + " squared")
+
 
 """
 Exercise 4:  Area of a Field
@@ -68,12 +74,21 @@ MoreThanOneLiterRefund=float(MoreThanOneLiter)*0.25
 TotalRefund=OneLiterOrLessRefund+MoreThanOneLiterRefund
 print("Your total refund is $", TotalRefund)
 
-"""
 
-def print_hi(name):
-    print(f"Hi, {name}")
+def bottleDeposits():
+    # reads the number of bottles
+    numOneLiterBottle = int(input("Number of 1L bottles: "))
+    numMoreOneLiterBottle = int(input("Number of more than 1L bottles: "))
+    refund = numMoreOneLiterBottle*0.25+numOneLiterBottle*0.1
+    refund = round(refund, 2)
+    print("Your refund will be: $", "{:.2f}".format(refund))
+    # adding everything greater than 1
 
 
-if __name__ == "__main__":
-    print_hi("Netbeans")
-"""
+    # To ensure we have two decimal places
+    # number_two_decimal = "{:.2f}".format(number_string)
+    # print(number_two_decimal)
+
+bottleDeposits()
+#Testing Suite
+#areaRoom()
